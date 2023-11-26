@@ -1,0 +1,21 @@
+.model large
+
+.stack 100h
+
+.data                                                                            ;data section
+        
+                                                                                    
+   input_password db 10,13, 'Please Enter the  Password$'                          ;variables for password portion
+   password db 'Umer Khalid$'                                                            ;password is already define / hardcoded
+   incorrect_password db 10,13, '      <!>You enterd an Incorrect Password<!>$'               ; 10,13 will take to start of  next line
+                          
+                          
+                          
+    welcome1      db 10,13,10,13,'         *************************************************  $'                           ;name of project or name or store     
+    welcome2      db 10,13,      '       ((                                                 ))$'
+    welcome3       db 10,13,     '       ))                                                 (($'                         ; wellcome message 
+    welcome4       db 10,13,     '       ((       WELCOME TO MUHAMMAD MEDICAL STORE         ))$'
+    welcome5       db 10,13,     '       ))                                                 (($'   
+    welcome6       db 10,13,     '       ((                                                 ))$'
+    welcome7       db 10,13,     '         *************************************************  $'
+                         
