@@ -6,7 +6,7 @@
         
                                                                                     
    input_password db 10,13, 'Please Enter the  Password$'                          ;variables for password portion
-   password db 'Umer Khalid$'                                                            ;password is already define / hardcoded
+   password db 'umer $'                                                            ;password is already define / hardcoded
    incorrect_password db 10,13, '      <!>You enterd an Incorrect Password<!>$'               ; 10,13 will take to start of  next line
                           
                           
@@ -18,4 +18,23 @@
     welcome5       db 10,13,     '       ))                                                 (($'   
     welcome6       db 10,13,     '       ((                                                 ))$'
     welcome7       db 10,13,     '         *************************************************  $'
+   
+
+                     
+                     
+                     ;****************SELECTING DIFFERNET OPTION FOR OPERATION **********************
                          
+   
+   msg1 db 10,13,10,13, 'Choose any Option$'
+   msg2 db 10,13,10,13, 'What Do You Want To Buy$'
+   msg_medicines db 10,13, 'Press 1 to buy medicines$'                            
+   medicines_sold db 10,13, 'Press 2 to see medicines statistics$'
+   amount_earned db 10,13,'Amount earned= $'                                   
+   amount db 0                                                                     
+   amount_print db 10,13,'Press 3 to show amount earned today$'              
+   input_again db 10,13, 'Please Press one of the above given keys$'
+   wrong_input db 10,13, '<!>Wrong Input<!>$'
+   exit_program db 10,13,'Press 4 to exit$'   
+     total_msg dw 'Total Earned= $'                      
+                                  
+                                                        
