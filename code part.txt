@@ -18,8 +18,27 @@
     welcome5       db 10,13,     '       ))                                                 (($'   
     welcome6       db 10,13,     '       ((                                                 ))$'
     welcome7       db 10,13,     '         *************************************************  $'
+                     
+
+
+                                         ;****************SELECTING DIFFERNET OPTION FOR OPERATION **********************
+                         
    
-     ;****************AMOUNT OF EACH MEDICINE **********************         
+   msg1 db 10,13,10,13, 'Choose any Option$'
+   msg2 db 10,13,10,13, 'What Do You Want To Buy$'
+   msg_medicines db 10,13, 'Press 1 to buy medicines$'                            
+   medicines_sold db 10,13, 'Press 2 to see medicines statistics$'
+   amount_earned db 10,13,'Amount earned= $'                                   
+   amount db 0                                                                     
+   amount_print db 10,13,'Press 3 to show amount earned today$'              
+   input_again db 10,13, 'Please Press one of the above given keys$'
+   wrong_input db 10,13, '<!>Wrong Input<!>$'
+   exit_program db 10,13,'Press 4 to exit$'   
+     total_msg dw 'Total Earned= $'                      
+                                  
+                                 
+
+                          ;****************AMOUNT OF EACH MEDICINE **********************         
    
    
    
@@ -62,24 +81,74 @@
    paracetamol_sold db 0
    cleritek_sold db 0                                                              ;variable for statistics of medicine
    aspirin_sold db 0                                                               ;will show how many  medicine sell
-                                                                                   ;will show for each medicine                                        
+                                                                                   ;will show for each medicine    
+   
+
+.code                                                                              ;code section starts
+                                               
+                                               
+                                               
+main proc
+        
+        
+    mov ax,@data                                                                   ;accessing data section
+    mov ds,ax                                                                      ;mov ax to ds... To access fast( heap initialization )
+     
+    
+    pass:                                                                          ;lable for password
+    mov dx,offset input_password                                                   ;print that / load in dx register
+    mov ah,9                                                                       ;for output the string
+    int 21h                                                                        ;intrepet
+    
+    mov dx,offset newLine                                                          ;new line
+    mov ah,9
+    int 21h 
+    
+    mov bx,offset password                                                         ;print that / load in dx register  
+    
+    
+    mov cx,5                                                                       ; initializing counter register for 5
+    l1:
+    mov ah,1
+    int 21h
+    cmp al,[bx]                                                                    ;taking password from user 
+    jne incorrect                                                                  ;camparing each element
+    inc bx                                                                         ;if password doesnot match so jump to incorrect lable will show mesage in that
+    loop l1                                                                        ;lable and then will take input again..... 
+          
+          
+    start:
+    mov dx,offset newLine
+    mov ah,9
+    int 21h
+    call menu                                                                      ; call the menu function to display main menu
+
+    mov dx,offset newLine
+    mov ah,9
+    int 21h    
+    
+    mov ah,1                                                                       ;after showing the manu  
+    int 21h                                                                        ;take input / choice from user 
+                                                                                   ;in which menu admin wnat to go
+    cmp al,'1'
+    je menu2  
+    cmp al,'2'                                                                     ;campre user input
+    je medicines_stats
+    cmp al,'3'
+    je show_amount
+    cmp al,'4'
+    je exit
+    
+    mov dx,offset wrong_input                                                     ;print that / load in dx register
+    mov ah,9                                                                      ;if user enter a key which is wrong so it will display an error message
+    int 21h
+    mov dx,offset input_again                                                     ;print line that please input again then jump to main menu and 
+    mov ah,9                                                                      ;take the user choice again
+    int 21h    
+    jmp start                                       
                                         
  
                      
                      
-                     ;****************SELECTING DIFFERNET OPTION FOR OPERATION **********************
-                         
-   
-   msg1 db 10,13,10,13, 'Choose any Option$'
-   msg2 db 10,13,10,13, 'What Do You Want To Buy$'
-   msg_medicines db 10,13, 'Press 1 to buy medicines$'                            
-   medicines_sold db 10,13, 'Press 2 to see medicines statistics$'
-   amount_earned db 10,13,'Amount earned= $'                                   
-   amount db 0                                                                     
-   amount_print db 10,13,'Press 3 to show amount earned today$'              
-   input_again db 10,13, 'Please Press one of the above given keys$'
-   wrong_input db 10,13, '<!>Wrong Input<!>$'
-   exit_program db 10,13,'Press 4 to exit$'   
-     total_msg dw 'Total Earned= $'                      
-                                  
+                   
                                                         
