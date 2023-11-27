@@ -19,7 +19,52 @@
     welcome6       db 10,13,     '       ((                                                 ))$'
     welcome7       db 10,13,     '         *************************************************  $'
    
-
+     ;****************AMOUNT OF EACH MEDICINE **********************         
+   
+   
+   
+   
+                                        price_panadol dw 4
+                                       price_paracetamol dw 3
+                                         price_cleritek dw 2    
+                                         price_aspirin dw 2
+   
+   
+    opt1 db 10,13, '1. Panadol - 4rs$'
+      msg_panadol db 10,13, 'How many panadols do you want to buy$'  
+     
+   opt2 db 10,13, '2. Paracetamol - 3rs$' 
+      msg_paracetamol db 10,13, 'How many paracetamol do you want to buy$'
+    
+   opt3 db 10,13, '3. Cleritek - 2rs$'
+      msg_cleritek db 10,13, 'How many cleritek do you want to buy$'
+   
+   opt4 db 10,13, '4. Aspirin - 2rs$'
+      msg_aspirin db 10,13, 'How many aspirin do you want to buy$'
+                                      
+  
+   
+                                                                                                   
+                                                                                                   
+                             
+                             ;******************NEWLINE FUNCTION*********************
+                                       
+                                        newLine db 10,13, '$'                                                         
+     
+   panadol_print db 10,13, 'Panadols sold = $'                                     ;variable for statistics of medicine
+   aspirin_print db 10,13, 'Aspirin sold = $'
+   cleritek_print db 10,13, 'Cleritek sold = $'
+   paracetamol_print db 10,13, 'Paracetamol sold = $'  
+   
+                                                
+                                                
+   panadol_sold db 0
+   paracetamol_sold db 0
+   cleritek_sold db 0                                                              ;variable for statistics of medicine
+   aspirin_sold db 0                                                               ;will show how many  medicine sell
+                                                                                   ;will show for each medicine                                        
+                                        
+ 
                      
                      
                      ;****************SELECTING DIFFERNET OPTION FOR OPERATION **********************
