@@ -21,7 +21,7 @@
                      
 
 
-                                         ;****************SELECTING DIFFERNET OPTION FOR OPERATION **********************
+                                         ;***************SELECTING DIFFERNET OPTION FOR OPERATION *********************
                          
    
    msg1 db 10,13,10,13, 'Choose any Option$'
@@ -38,7 +38,7 @@
                                   
                                  
 
-                          ;****************AMOUNT OF EACH MEDICINE **********************         
+                                              ;****************AMOUNT OF EACH MEDICINE **********************         
    
    
    
@@ -66,7 +66,7 @@
                                                                                                    
                                                                                                    
                              
-                             ;******************NEWLINE FUNCTION*********************
+                                           ;******************NEWLINE FUNCTION*********************
                                        
                                         newLine db 10,13, '$'                                                         
      
