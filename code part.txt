@@ -210,7 +210,67 @@ main proc
         ret                                                               ;end of that function
           
     menu endp
-                   
+    
+
+     menu2 proc                                                      ;function that is user for medicines  
+                                                                      
+        pick:      
+        mov dx,offset msg2                                          
+        mov ah,9
+        int 21h
+        
+        mov dx,offset opt1
+        mov ah,9
+        int 21h                                                    ;showing messages / types of medicine avalable in the store 
+                                                                   
+        mov dx,offset opt2
+        mov ah,9                                                   ;asking user that want medicine he/she want to but
+        int 21h
+            
+        mov dx,offset opt3
+        mov ah,9
+        int 21h
+        
+        mov dx,offset opt4
+        mov ah,9
+        int 21h
+    
+        
+        mov dx,offset newLine
+        mov ah,9
+        int 21h    
+                                                                     
+        mov ah,1                                                     ;taking input from user ( choice of user)
+        int 21h                                                      ;intrept
+        
+           
+           
+           
+        cmp al,'1'
+        je Biotin                                                   ;camparing user input
+        cmp al,'2'                                                  
+        je Azomax
+        cmp al,'3'                                                   ;will jump to lable according to user direction
+        je Brufen
+        cmp al,'4'
+        je Flagyl
+        
+        
+         
+        
+        mov dx,offset wrong_input                                    ; if user enter a wrong choice then show an error message
+        mov ah,9                                                     
+        int 21h                                                      ; then ask user to enter choice again
+        mov dx,offset input_again
+        mov ah,9
+        int 21h                                                      ;intrept 
+        jmp pick                                                     ;jump to that menu again
+     
+        
+        ret                                                          ;instruction for return
+            
+            
+    menu2 endp                  
                      
                    
                                                         
