@@ -145,7 +145,48 @@ main proc
     mov dx,offset input_again                                                     ;print line that please input again then jump to main menu and 
     mov ah,9                                                                      ;take the user choice again
     int 21h    
-    jmp start                                       
+    jmp start 
+
+   
+
+   Biotin:                                                                      ;lable for medicine ( panadol)
+         
+        mov dx,offset msg_Biotin                                                 ;message that asking user to enter quantity
+        mov ah,9                                                                  ;output the string
+        int 21h                                                                   ;intrept
+            
+        mov dx,offset newLine
+        mov ah,9                                                                  ;move to new line
+        int 21h        
+        
+        mov ah,1                                                                  ;take user input
+        int 21h
+        
+        cmp al,'9'                                                                ;if user enter wrong input show error message
+        jg wrong                                                                  
+        
+        sub al,48                                                                 ;subtract the acssi of 0 from input
+        
+        add Biotin_sold,al                                                       ;add that quantity in sold , to recronized total sold 
+        mul price_of_Biotin
+  
+        
+        add amount,al                                                             ;add that earned amount in total earning
+        mov cl,al
+        mov dx,offset newLine
+        mov ah,9
+        int 21h
+        mov dx,offset total_msg
+        mov ah,9                                                                  ;show the totol of last sell
+        int 21h                                                                   ;move the value of cl to dl 
+        mov dl,cl                                                                 ;add 48 ( ascci of 0)
+        add dl,48                                                                 ;output 
+        mov ah,2
+        int 21h
+        
+         
+                
+        jmp start                                      
                                         
  
    
