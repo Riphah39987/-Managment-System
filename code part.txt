@@ -43,23 +43,23 @@
    
    
    
-                                        price_panadol dw 4
-                                       price_paracetamol dw 3
-                                         price_cleritek dw 2    
-                                         price_aspirin dw 2
+                                        price_of_Biotin dw 4
+                                       price_of_Azomax dw 3
+                                         price_of_Brufen  dw 2    
+                                         price_of_Flagyl dw 2
    
    
-    opt1 db 10,13, '1. Panadol - 4rs$'
-      msg_panadol db 10,13, 'How many panadols do you want to buy$'  
+    opt1 db 10,13, '1. Biotin - 4rs$'
+      msg_Biotin db 10,13, 'How many Biotin  do you want to buy$'  
      
-   opt2 db 10,13, '2. Paracetamol - 3rs$' 
-      msg_paracetamol db 10,13, 'How many paracetamol do you want to buy$'
+   opt2 db 10,13, '2. Azomax - 3rs$' 
+      msg_Azomax db 10,13, 'How many Azomax do you want to buy$'
     
-   opt3 db 10,13, '3. Cleritek - 2rs$'
-      msg_cleritek db 10,13, 'How many cleritek do you want to buy$'
+   opt3 db 10,13, '3. Brufen  - 2rs$'
+      msg_Brufen db 10,13, 'How many Brufen do you want to buy$'
    
-   opt4 db 10,13, '4. Aspirin - 2rs$'
-      msg_aspirin db 10,13, 'How many aspirin do you want to buy$'
+   opt4 db 10,13, '4. Flagyl - 2rs$'
+      msg_Flagyl db 10,13, 'How many Flagyl do you want to buy$'
                                       
   
    
@@ -70,17 +70,17 @@
                                        
                                         newLine db 10,13, '$'                                                         
      
-   panadol_print db 10,13, 'Panadols sold = $'                                     ;variable for statistics of medicine
-   aspirin_print db 10,13, 'Aspirin sold = $'
-   cleritek_print db 10,13, 'Cleritek sold = $'
-   paracetamol_print db 10,13, 'Paracetamol sold = $'  
+   Biotin_print db 10,13, 'Biotin sold = $'                                     ;variable for statistics of medicine
+   Azomax_print db 10,13, 'Azomax  sold = $'
+   Brufensold_print db 10,13, 'Brufensold = $'
+  Flagyl _print db 10,13, 'Flagyl  sold = $'  
    
                                                 
                                                 
-   panadol_sold db 0
-   paracetamol_sold db 0
-   cleritek_sold db 0                                                              ;variable for statistics of medicine
-   aspirin_sold db 0                                                               ;will show how many  medicine sell
+  Biotin_sold db 0
+  Azomax_sold db 0
+  Brufensold_sold db 0                                                              ;variable for statistics of medicine
+   Flagyl_sold db 0                                                               ;will show how many  medicine sell
                                                                                    ;will show for each medicine    
    
 
@@ -148,7 +148,69 @@ main proc
     jmp start                                       
                                         
  
-                     
+   
+
+
+
+    menu proc
+              
+        
+              
+        mov dx,offset welcome1
+        mov ah,9
+        int 21h
+        
+        mov dx,offset welcome2
+        mov ah,9
+        int 21h
+        
+        mov dx,offset welcome3
+        mov ah,9
+        int 21h
+        
+        mov dx,offset welcome4
+        mov ah,9
+        int 21h                                                            ; show the wellcome messsage
+        
+        mov dx,offset welcome5
+        mov ah,9
+        int 21h
+        
+        mov dx,offset welcome6
+        mov ah,9
+        int 21h
+        
+        mov dx,offset welcome7
+        mov ah,9
+        int 21h
+        
+                                                                    
+        
+        mov dx,offset msg1
+        mov ah,9
+        int 21h
+                                                                            ; will show the front or main menu meaages
+        mov dx,offset msg_medicines
+        mov ah,9
+        int 21h
+        
+        mov dx,offset medicines_sold
+        mov ah,9
+        int 21h
+        
+        mov dx,offset amount_print
+        mov ah,9
+        int 21h
+        
+        mov dx,offset exit_program
+        mov ah,9
+        int 21h                   
+        
+             
+        ret                                                               ;end of that function
+          
+    menu endp
+                   
                      
                    
                                                         
