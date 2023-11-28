@@ -79,114 +79,151 @@
                                                 
   Biotin_sold db 0
   Azomax_sold db 0
-  Brufensold_sold db 0                                                              ;variable for statistics of medicine
-   Flagyl_sold db 0                                                               ;will show how many  medicine sell
-                                                                                   ;will show for each medicine    
+  Brufensold_sold db 0                                                              
+   Flagyl_sold db 0                                                               
    
 
-.code                                                                              ;code section starts
+.code                                                                              
                                                
                                                
                                                
 main proc
         
         
-    mov ax,@data                                                                   ;accessing data section
-    mov ds,ax                                                                      ;mov ax to ds... To access fast( heap initialization )
+    mov ax,@data                                                                   
+    mov ds,ax                                                                 
      
     
-    pass:                                                                          ;lable for password
-    mov dx,offset input_password                                                   ;print that / load in dx register
-    mov ah,9                                                                       ;for output the string
-    int 21h                                                                        ;intrepet
+    pass:                                                                         
+    mov dx,offset input_password                                                   
+    mov ah,9                                                                      
+    int 21h                                                                        
     
-    mov dx,offset newLine                                                          ;new line
+    mov dx,offset newLine                                                          
     mov ah,9
     int 21h 
     
-    mov bx,offset password                                                         ;print that / load in dx register  
+    mov bx,offset password                                                      
     
     
-    mov cx,5                                                                       ; initializing counter register for 5
+    mov cx,5                                                                    
     l1:
     mov ah,1
     int 21h
-    cmp al,[bx]                                                                    ;taking password from user 
-    jne incorrect                                                                  ;camparing each element
-    inc bx                                                                         ;if password doesnot match so jump to incorrect lable will show mesage in that
-    loop l1                                                                        ;lable and then will take input again..... 
+    cmp al,[bx]                                                                 
+    jne incorrect                                                               
+    inc bx                                                                     
+    loop l1                                                                
           
           
     start:
     mov dx,offset newLine
     mov ah,9
     int 21h
-    call menu                                                                      ; call the menu function to display main menu
+    call menu                                                                   
 
     mov dx,offset newLine
     mov ah,9
     int 21h    
     
-    mov ah,1                                                                       ;after showing the manu  
-    int 21h                                                                        ;take input / choice from user 
-                                                                                   ;in which menu admin wnat to go
+    mov ah,1                                                                      
+    int 21h                                                                   
+                                                                                
     cmp al,'1'
     je menu2  
-    cmp al,'2'                                                                     ;campre user input
+    cmp al,'2'                                                 
     je medicines_stats
     cmp al,'3'
     je show_amount
     cmp al,'4'
     je exit
     
-    mov dx,offset wrong_input                                                     ;print that / load in dx register
-    mov ah,9                                                                      ;if user enter a key which is wrong so it will display an error message
+    mov dx,offset wrong_input                                                    
+    mov ah,9                                                                 
     int 21h
-    mov dx,offset input_again                                                     ;print line that please input again then jump to main menu and 
-    mov ah,9                                                                      ;take the user choice again
+    mov dx,offset input_again                                               
+    mov ah,9                                                                 
     int 21h    
     jmp start 
 
    
 
-   Biotin:                                                                      ;lable for medicine ( panadol)
+   Biotin:                                      
          
-        mov dx,offset msg_Biotin                                                 ;message that asking user to enter quantity
-        mov ah,9                                                                  ;output the string
-        int 21h                                                                   ;intrept
+        mov dx,offset msg_Biotin                   
+        mov ah,9                                 
+        int 21h                                                           
             
         mov dx,offset newLine
-        mov ah,9                                                                  ;move to new line
+        mov ah,9                                                                
         int 21h        
         
-        mov ah,1                                                                  ;take user input
+        mov ah,1                                                                
         int 21h
         
-        cmp al,'9'                                                                ;if user enter wrong input show error message
+        cmp al,'9'                                                                
         jg wrong                                                                  
         
-        sub al,48                                                                 ;subtract the acssi of 0 from input
+        sub al,48                                                              
         
-        add Biotin_sold,al                                                       ;add that quantity in sold , to recronized total sold 
+        add Biotin_sold,al                                                    
         mul price_of_Biotin
   
         
-        add amount,al                                                             ;add that earned amount in total earning
+        add amount,al                                                             
         mov cl,al
         mov dx,offset newLine
         mov ah,9
         int 21h
         mov dx,offset total_msg
-        mov ah,9                                                                  ;show the totol of last sell
-        int 21h                                                                   ;move the value of cl to dl 
-        mov dl,cl                                                                 ;add 48 ( ascci of 0)
-        add dl,48                                                                 ;output 
+        mov ah,9                                                                  
+        int 21h                                                                   
+        mov dl,cl                                                                 
+        add dl,48                                                                 
         mov ah,2
         int 21h
         
          
                 
-        jmp start                                      
+        jmp start         
+
+
+          Azomax:                                             
+    
+        mov dx,offset msg_Azomax                                             
+        mov ah,9                                                                  
+        int 21h                                                                  
+            
+        mov dx,offset newLine                                                     
+        mov ah,9
+        int 21h                                                       
+                                                                         
+        
+        mov ah,1                                                                  
+        int 21h
+        
+        cmp al,'9'
+        jg wrong
+                                                                                  
+        sub al,48
+        
+        add Azomax_sold,al                                                   
+        mul price_of_Azomax                                                     
+        
+        add amount,al
+        mov cl,al                                                                 
+        mov dx,offset newLine
+        mov ah,9
+        int 21h
+        mov dx,offset total_msg
+        mov ah,9                                                                  
+        int 21h                                                                   
+        mov dl,cl                                                                 
+        add dl,48                                                                 
+        mov ah,2
+        int 21h
+        
+        jmp start                             
                                         
  
    
@@ -211,7 +248,7 @@ main proc
         
         mov dx,offset welcome4
         mov ah,9
-        int 21h                                                            ; show the wellcome messsage
+        int 21h                                           
         
         mov dx,offset welcome5
         mov ah,9
@@ -230,7 +267,7 @@ main proc
         mov dx,offset msg1
         mov ah,9
         int 21h
-                                                                            ; will show the front or main menu meaages
+                                                          
         mov dx,offset msg_medicines
         mov ah,9
         int 21h
@@ -248,12 +285,12 @@ main proc
         int 21h                   
         
              
-        ret                                                               ;end of that function
+        ret                                                    
           
     menu endp
     
 
-     menu2 proc                                                      ;function that is user for medicines  
+     menu2 proc                                            
                                                                       
         pick:      
         mov dx,offset msg2                                          
@@ -262,10 +299,10 @@ main proc
         
         mov dx,offset opt1
         mov ah,9
-        int 21h                                                    ;showing messages / types of medicine avalable in the store 
+        int 21h                                 
                                                                    
         mov dx,offset opt2
-        mov ah,9                                                   ;asking user that want medicine he/she want to but
+        mov ah,9                                           
         int 21h
             
         mov dx,offset opt3
@@ -281,17 +318,17 @@ main proc
         mov ah,9
         int 21h    
                                                                      
-        mov ah,1                                                     ;taking input from user ( choice of user)
-        int 21h                                                      ;intrept
+        mov ah,1                                                  
+        int 21h         
         
            
            
            
         cmp al,'1'
-        je Biotin                                                   ;camparing user input
+        je Biotin                              
         cmp al,'2'                                                  
         je Azomax
-        cmp al,'3'                                                   ;will jump to lable according to user direction
+        cmp al,'3'                                                  
         je Brufen
         cmp al,'4'
         je Flagyl
@@ -299,16 +336,16 @@ main proc
         
          
         
-        mov dx,offset wrong_input                                    ; if user enter a wrong choice then show an error message
+        mov dx,offset wrong_input      
         mov ah,9                                                     
-        int 21h                                                      ; then ask user to enter choice again
+        int 21h                                  
         mov dx,offset input_again
         mov ah,9
-        int 21h                                                      ;intrept 
-        jmp pick                                                     ;jump to that menu again
+        int 21h                     
+        jmp pick                                               
      
         
-        ret                                                          ;instruction for return
+        ret                                      
             
             
     menu2 endp                  
