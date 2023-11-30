@@ -265,6 +265,45 @@ main proc
         int 21h
         
         jmp start
+
+
+
+    Flagyl:
+         
+        mov dx,offset msg_Flagyl
+        mov ah,9
+        int 21h
+           
+        mov dx,offset newLine
+        mov ah,9
+        int 21h                                                                   ;same work as done in the previous lable
+                                                                                   ;all functionality of this lable is same
+        mov ah,1                                                                  
+        int 21h
+       
+        cmp al,'9'
+        jg wrong
+        sub al,48
+       
+        add Flagyl_sold,al
+        mul price_of_Flagyl
+       
+        add amount,al
+        mov cl,al
+        mov dx,offset newLine
+        mov ah,9
+        int 21h
+        mov dx,offset total_msg
+        mov ah,9                                                                
+        int 21h                                                                  
+        mov dl,cl                                                                
+        add dl,48                                                                
+        mov ah,2
+        int 21h
+       
+         
+               
+        jmp start
                                            
                                         
  
