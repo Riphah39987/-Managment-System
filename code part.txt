@@ -268,7 +268,7 @@ main proc
 
 
 
-    Flagyl:
+   Flagyl:
          
         mov dx,offset msg_Flagyl
         mov ah,9
@@ -304,8 +304,7 @@ main proc
          
                
         jmp start
-                                           
-                                        
+           
  
    
 
