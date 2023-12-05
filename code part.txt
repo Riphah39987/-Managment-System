@@ -319,6 +319,14 @@ main proc
         int 21h
        
         jmp start
+
+
+    incorrect:                                                                   ;if password was incorrect so program will jump here
+       
+        mov dx,offset incorrect_password                                        ;print that / load in dx register
+        mov ah,9                                                                ;output string
+        int 21h                                                                 ;intrept
+        jmp pass     
            
  
    
