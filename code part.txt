@@ -304,6 +304,21 @@ main proc
          
                
         jmp start
+
+
+      show_amount:
+                                                                               ;lable that show the total amount earned
+        mov dx,offset amount_earned
+        mov ah,9                                                               ;print that / load in dx register
+        int 21h                                                                ;output the string
+         
+       
+        mov dl,amount
+        add dl,48                                                              ;move the value of variable into dl register
+        mov ah,2                                                               ;add ascci of 0
+        int 21h
+       
+        jmp start
            
  
    
