@@ -469,7 +469,68 @@ main endp
         ret                                                      
             
             
-    menu2 endp                  
+    menu2 endp  
+
+
+medicines_stats proc
+         
+         
+        mov dx,offset panadol_print
+        mov ah,9
+        int 21h
+ 
+        mov dl,panadol_sold
+        add dl,48
+        mov ah,2                                                          ;function that is used in medicine statistics
+        int 21h
+       
+       
+                                                                         
+        mov dx,offset paracetamol_print
+        mov ah,9
+        int 21h
+
+        mov dl,paracetamol_sold
+        add dl,48
+        mov ah,2                                                          ; will the message for each medicine and
+        int 21h                                                           ; show quantity of medicine sold
+       
+       
+       
+       
+        mov dx,offset cleritek_print
+        mov ah,9
+        int 21h
+ 
+        mov dl,cleritek_sold
+        add dl,48
+        mov ah,2
+        int 21h
+       
+       
+       
+       
+        mov dx,offset aspirin_print
+        mov ah,9
+        int 21h
+         
+        mov dl,aspirin_sold
+        add dl,48
+        mov ah,2
+        int 21h
+       
+       
+       
+       
+       
+           
+        jmp start
+       
+        ret
+         
+    medicines_stats endp                                                  ; end of function
+       
+end main                  
                      
                    
                                                         
