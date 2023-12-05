@@ -2,311 +2,311 @@
 
 .stack 100h
 
-.data                                                                           
-        
-                                                                                    
-   input_password db 10,13, 'Please Enter the  Password$'                       
-   password db 'umer $'                                                    
-   incorrect_password db 10,13, '      <!>You enterd an Incorrect Password<!>$'    
-                          
-                          
-                          
-    welcome1      db 10,13,10,13,'         *************************************************  $'                         
-    welcome2      db 10,13,      '       ((                                                 ))$'
-    welcome3       db 10,13,     '       ))                                                 (($'                       
-    welcome4       db 10,13,     '       ((       WELCOME TO MUHAMMAD MEDICAL STORE         ))$'
-    welcome5       db 10,13,     '       ))                                                 (($'   
-    welcome6       db 10,13,     '       ((                                                 ))$'
-    welcome7       db 10,13,     '         *************************************************  $'
-                     
+.data                                                                          
+       
+                                                                                   
+   input_password db 10,13, 'Please Enter the  Password$'                      
+   password db 'umer $'                                                    
+   incorrect_password db 10,13, '      <!>You enterd an Incorrect Password<!>$'    
+                         
+                         
+                         
+    welcome1      db 10,13,10,13,'         *************************************************  $'                        
+    welcome2      db 10,13,      '       ((                                                 ))$'
+    welcome3       db 10,13,     '       ))                                                 (($'                      
+    welcome4       db 10,13,     '       ((       WELCOME TO MUHAMMAD MEDICAL STORE         ))$'
+    welcome5       db 10,13,     '       ))                                                 (($'  
+    welcome6       db 10,13,     '       ((                                                 ))$'
+    welcome7       db 10,13,     '         *************************************************  $'
+                     
 
 
-                                         ;***************SELECTING DIFFERNET OPTION FOR OPERATION *********************
-                         
-   
-   msg1 db 10,13,10,13, 'Choose any Option$'
-   msg2 db 10,13,10,13, 'What Do You Want To Buy$'
-   msg_medicines db 10,13, 'Press 1 to buy medicines$'                            
-   medicines_sold db 10,13, 'Press 2 to see medicines statistics$'
-   amount_earned db 10,13,'Amount earned= $'                                   
-   amount db 0                                                                     
-   amount_print db 10,13,'Press 3 to show amount earned today$'              
-   input_again db 10,13, 'Please Press one of the above given keys$'
-   wrong_input db 10,13, '<!>Wrong Input<!>$'
-   exit_program db 10,13,'Press 4 to exit$'   
-     total_msg dw 'Total Earned= $'                      
-                                  
-                                 
+                                         ;***************SELECTING DIFFERNET OPTION FOR OPERATION *********************
+                         
+   
+   msg1 db 10,13,10,13, 'Choose any Option$'
+   msg2 db 10,13,10,13, 'What Do You Want To Buy$'
+   msg_medicines db 10,13, 'Press 1 to buy medicines$'                            
+   medicines_sold db 10,13, 'Press 2 to see medicines statistics$'
+   amount_earned db 10,13,'Amount earned= $'                                  
+   amount db 0                                                                    
+   amount_print db 10,13,'Press 3 to show amount earned today$'              
+   input_again db 10,13, 'Please Press one of the above given keys$'
+   wrong_input db 10,13, '<!>Wrong Input<!>$'
+   exit_program db 10,13,'Press 4 to exit$'  
+     total_msg dw 'Total Earned= $'                      
+                                 
+                                 
 
-                                              ;****************AMOUNT OF EACH MEDICINE **********************         
-   
-   
-   
-   
-                                        price_of_Biotin dw 4
-                                       price_of_Azomax dw 3
-                                         price_of_Brufen  dw 2    
-                                         price_of_Flagyl dw 2
-   
-   
-    opt1 db 10,13, '1. Biotin - 4rs$'
-      msg_Biotin db 10,13, 'How many Biotin  do you want to buy$'  
-     
-   opt2 db 10,13, '2. Azomax - 3rs$' 
-      msg_Azomax db 10,13, 'How many Azomax do you want to buy$'
-    
-   opt3 db 10,13, '3. Brufen  - 2rs$'
-      msg_Brufen db 10,13, 'How many Brufen do you want to buy$'
-   
-   opt4 db 10,13, '4. Flagyl - 2rs$'
-      msg_Flagyl db 10,13, 'How many Flagyl do you want to buy$'
-                                      
-  
-   
-                                                                                                   
-                                                                                                   
-                             
-                                           ;******************NEWLINE FUNCTION*********************
-                                       
-                                        newLine db 10,13, '$'                                                         
-     
-   Biotin_print db 10,13, 'Biotin sold = $'                
-   Azomax_print db 10,13, 'Azomax  sold = $'
-   Brufensold_print db 10,13, 'Brufensold = $'
-  Flagyl _print db 10,13, 'Flagyl  sold = $'  
-   
-                                                
-                                                
-  Biotin_sold db 0
-  Azomax_sold db 0
-  Brufensold_sold db 0                                                   
-   Flagyl_sold db 0                                                           
-                                                                            
-   
+                                              ;****************AMOUNT OF EACH MEDICINE **********************        
+   
+   
+   
+   
+                                        price_of_Biotin dw 4
+                                       price_of_Azomax dw 3
+                                         price_of_Brufen  dw 2    
+                                         price_of_Flagyl dw 2
+   
+   
+    opt1 db 10,13, '1. Biotin - 4rs$'
+      msg_Biotin db 10,13, 'How many Biotin  do you want to buy$'  
+     
+   opt2 db 10,13, '2. Azomax - 3rs$'
+      msg_Azomax db 10,13, 'How many Azomax do you want to buy$'
+   
+   opt3 db 10,13, '3. Brufen  - 2rs$'
+      msg_Brufen db 10,13, 'How many Brufen do you want to buy$'
+   
+   opt4 db 10,13, '4. Flagyl - 2rs$'
+      msg_Flagyl db 10,13, 'How many Flagyl do you want to buy$'
+                                     
+ 
+   
+                                                                                                   
+                                                                                                   
+                             
+                                           ;******************NEWLINE FUNCTION*********************
+                                       
+                                        newLine db 10,13, '$'                                                        
+     
+   Biotin_print db 10,13, 'Biotin sold = $'                
+   Azomax_print db 10,13, 'Azomax  sold = $'
+   Brufen_print db 10,13, 'Brufensold = $'
+  Flagyl_print db 10,13, 'Flagylsold = $'  
+   
+                                               
+                                               
+  Biotin_sold db 0
+  Azomax_sold db 0
+  Brufen_sold db 0                                                  
+   Flagyl_sold db 0                                                          
+                                                                           
+   
 
-.code                                             
-                                               
-                                               
-                                               
+.code                                            
+                                               
+                                               
+                                               
 main proc
-        
-        
-    mov ax,@data                                                  
-    mov ds,ax                                
-     
-    
-    pass:                                                            
-    mov dx,offset input_password                                        
-    mov ah,9                                                                
-    int 21h                                              
-    
-    mov dx,offset newLine                             
-    mov ah,9
-    int 21h 
-    
-    mov bx,offset password                                                      
-    
-    
-    mov cx,5                                         
-    l1:
-    mov ah,1
-    int 21h
-    cmp al,[bx]                                                               
-    jne incorrect                                               
-    inc bx                                                     
-    loop l1                                                                     
-          
-    start:
-    mov dx,offset newLine
-    mov ah,9
-    int 21h
-    call menu                                                      
+       
+       
+    mov ax,@data                                                  
+    mov ds,ax                                
+     
+   
+    pass:                                                            
+    mov dx,offset input_password                                        
+    mov ah,9                                                                
+    int 21h                                              
+   
+    mov dx,offset newLine                            
+    mov ah,9
+    int 21h
+   
+    mov bx,offset password                                                      
+   
+   
+    mov cx,5                                        
+    l1:
+    mov ah,1
+    int 21h
+    cmp al,[bx]                                                              
+    jne incorrect                                              
+    inc bx                                                    
+    loop l1                                                                    
+         
+    start:
+    mov dx,offset newLine
+    mov ah,9
+    int 21h
+    call menu                                                      
 
-    mov dx,offset newLine
-    mov ah,9
-    int 21h    
-    
-    mov ah,1                                                         
-    int 21h                                                                
-                                                             
-    cmp al,'1'
-    je menu2  
-    cmp al,'2'                                               
-    je medicines_stats
-    cmp al,'3'
-    je show_amount
-    cmp al,'4'
-    je exit
-    
-    mov dx,offset wrong_input               
-    mov ah,9                                                           
-    int 21h
-    mov dx,offset input_again                               
-    mov ah,9                                                  
-    int 21h    
-    jmp start 
+    mov dx,offset newLine
+    mov ah,9
+    int 21h    
+   
+    mov ah,1                                                        
+    int 21h                                                                
+                                                             
+    cmp al,'1'
+    je menu2  
+    cmp al,'2'                                              
+    je medicines_stats
+    cmp al,'3'
+    je show_amount
+    cmp al,'4'
+    je exit
+   
+    mov dx,offset wrong_input              
+    mov ah,9                                                          
+    int 21h
+    mov dx,offset input_again                              
+    mov ah,9                                                  
+    int 21h    
+    jmp start
 
-   
+   
 
-   Biotin:                                                      
-         
-        mov dx,offset msg_Biotin                                            
-        mov ah,9                                                
-        int 21h                                                               
-            
-        mov dx,offset newLine
-        mov ah,9                                                  
-        int 21h        
-        
-        mov ah,1                                        
-        int 21h
-        
-        cmp al,'9'                                                           
-        jg wrong                                                                  
-        
-        sub al,48                                                     
-        
-        add Biotin_sold,al                                         
-        mul price_of_Biotin
-  
-        
-        add amount,al                                        
-        mov cl,al
-        mov dx,offset newLine
-        mov ah,9
-        int 21h
-        mov dx,offset total_msg
-        mov ah,9                    
-        int 21h                                                 
-        mov dl,cl                                                     
-        add dl,48                                                           
-        mov ah,2
-        int 21h
-        
-         
-                
-        jmp start   
+   Biotin:                                                      
+         
+        mov dx,offset msg_Biotin                                            
+        mov ah,9                                                
+        int 21h                                                              
+           
+        mov dx,offset newLine
+        mov ah,9                                                  
+        int 21h        
+       
+        mov ah,1                                        
+        int 21h
+       
+        cmp al,'9'                                                          
+        jg wrong                                                                  
+       
+        sub al,48                                                    
+       
+        add Biotin_sold,al                                        
+        mul price_of_Biotin
+ 
+       
+        add amount,al                                        
+        mov cl,al
+        mov dx,offset newLine
+        mov ah,9
+        int 21h
+        mov dx,offset total_msg
+        mov ah,9                    
+        int 21h                                                
+        mov dl,cl                                                    
+        add dl,48                                                          
+        mov ah,2
+        int 21h
+       
+         
+               
+        jmp start  
 
-            
+           
 
-          Azomax:                                                              
-        mov dx,offset msg_Azomax                                             
-        mov ah,9                                                                  
-        int 21h                                                                  
-            
-        mov dx,offset newLine                                                     
-        mov ah,9
-        int 21h                                                
-                                                                  
-        
-        mov ah,1                                                                  
-        int 21h
-        
-        cmp al,'9'
-        jg wrong
-                                                                                  
-        sub al,48
-        
-        add Azomax_sold,al                                                   
-        mul price_of_Azomax                                                     
-        
-        add amount,al
-        mov cl,al                                                                 
-        mov dx,offset newLine
-        mov ah,9
-        int 21h
-        mov dx,offset total_msg
-        mov ah,9                                                                  
-        int 21h                                                                   
-        mov dl,cl                                                                 
-        add dl,48                                                                 
-        mov ah,2
-        int 21h
-        
-        jmp start
-        
-     
-     
-        
-                              
-    
-    Brufen:                                                                 
-        
-        mov dx,offset msg_Brufen                                                
-        mov ah,9                                                                  
-        int 21h                                                                   
-            
-        mov dx,offset newLine
-        mov ah,9
-        int 21h        
-        
-        mov ah,1                                                                  
-        int 21h    
-                                                                                  
-        cmp al,'9'                                                                    
-        jg wrong                                                                
-        
-        sub al,48                                                                 
-        
-        add Brufen_sold,al                                                      
-        mul price_of_Brufen
-        
-        add amount,al
-        mov cl,al
-        mov dx,offset newLine
-        mov ah,9
-        int 21h
-        mov dx,offset total_msg
-        mov ah,9                                                                  
-        int 21h                                                                   
-        mov dl,cl                                                                 
-        add dl,48                                                                 
-        mov ah,2
-        int 21h
-        
-        jmp start
-
-
-
-   Flagyl:
-         
-        mov dx,offset msg_Flagyl
-        mov ah,9
-        int 21h
-           
-        mov dx,offset newLine
-        mov ah,9
-        int 21h                                                                   ;same work as done in the previous lable
-                                                                                   ;all functionality of this lable is same
-        mov ah,1                                                                  
-        int 21h
-       
-        cmp al,'9'
-        jg wrong
-        sub al,48
-       
-        add Flagyl_sold,al
-        mul price_of_Flagyl
-       
-        add amount,al
-        mov cl,al
-        mov dx,offset newLine
-        mov ah,9
-        int 21h
-        mov dx,offset total_msg
-        mov ah,9                                                                
-        int 21h                                                                  
-        mov dl,cl                                                                
-        add dl,48                                                                
-        mov ah,2
-        int 21h
-       
-         
-               
-        jmp start
+          Azomax:                                                              
+        mov dx,offset msg_Azomax                                            
+        mov ah,9                                                                  
+        int 21h                                                                  
+           
+        mov dx,offset newLine                                                    
+        mov ah,9
+        int 21h                                                
+                                                                 
+       
+        mov ah,1                                                                  
+        int 21h
+       
+        cmp al,'9'
+        jg wrong
+                                                                                 
+        sub al,48
+       
+        add Azomax_sold,al                                                  
+        mul price_of_Azomax                                                    
+       
+        add amount,al
+        mov cl,al                                                                
+        mov dx,offset newLine
+        mov ah,9
+        int 21h
+        mov dx,offset total_msg
+        mov ah,9                                                                  
+        int 21h                                                                  
+        mov dl,cl                                                                
+        add dl,48                                                                
+        mov ah,2
+        int 21h
+       
+        jmp start
+       
+     
+     
+       
+                             
+   
+    Brufen:                                                                
+       
+        mov dx,offset msg_Brufen                                                
+        mov ah,9                                                                  
+        int 21h                                                                  
+           
+        mov dx,offset newLine
+        mov ah,9
+        int 21h        
+       
+        mov ah,1                                                                  
+        int 21h    
+                                                                                 
+        cmp al,'9'                                                                    
+        jg wrong                                                                
+       
+        sub al,48                                                                
+       
+        add Brufen_sold,al                                                      
+        mul price_of_Brufen
+       
+        add amount,al
+        mov cl,al
+        mov dx,offset newLine
+        mov ah,9
+        int 21h
+        mov dx,offset total_msg
+        mov ah,9                                                                  
+        int 21h                                                                  
+        mov dl,cl                                                                
+        add dl,48                                                                
+        mov ah,2
+        int 21h
+       
+        jmp start
 
 
-      show_amount:
+       Flagyl:
+         
+        mov dx,offset msg_Flagyl
+        mov ah,9
+        int 21h
+           
+        mov dx,offset newLine
+        mov ah,9
+        int 21h                                                                   ;same work as done in the previous lable
+                                                                                   ;all functionality of this lable is same
+        mov ah,1                                                                  
+        int 21h
+       
+        cmp al,'9'
+        jg wrong
+        sub al,48
+       
+        add Flagyl_sold,al
+        mul price_of_Flagyl
+       
+        add amount,al
+        mov cl,al
+        mov dx,offset newLine
+        mov ah,9
+        int 21h
+        mov dx,offset total_msg
+        mov ah,9                                                                
+        int 21h                                                                  
+        mov dl,cl                                                                
+        add dl,48                                                                
+        mov ah,2
+        int 21h
+       
+         
+               
+        jmp start
+
+
+ 
+    show_amount:
                                                                                ;lable that show the total amount earned
         mov dx,offset amount_earned
         mov ah,9                                                               ;print that / load in dx register
@@ -318,19 +318,22 @@ main proc
         mov ah,2                                                               ;add ascci of 0
         int 21h
        
-        jmp start
-
-
-    incorrect:                                                                   ;if password was incorrect so program will jump here
+        jmp start  
+       
+   
+             
+             
+   
+   incorrect:                                                                   ;if password was incorrect so program will jump here
        
         mov dx,offset incorrect_password                                        ;print that / load in dx register
         mov ah,9                                                                ;output string
         int 21h                                                                 ;intrept
-        jmp pass     
-
-
-
-wrong:
+        jmp pass                                                                ;jump to start and take password again
+       
+   
+   
+   wrong:
            mov dx,offset wrong_input                                            ;print that / load in dx register
            mov ah,9                                                             ;if user enter a key which is wrong so it will display an error message
            int 21h
@@ -339,137 +342,141 @@ wrong:
            int 21h  
            jmp menu2
            
+           
+                                                                                ;lable to exit the program
+   exit:
+        mov ah,4ch
+        int 21h
+           
+main endp                
 
-exit:
-mov ah,4ch
-int 21h
-
-main endp
-           
- 
-   
+           
+                                           
+                                       
+ 
+   
 
 
 
-    menu proc
-              
-        
-              
-        mov dx,offset welcome1
-        mov ah,9
-        int 21h
-        
-        mov dx,offset welcome2
-        mov ah,9
-        int 21h
-        
-        mov dx,offset welcome3
-        mov ah,9
-        int 21h
-        
-        mov dx,offset welcome4
-        mov ah,9
-        int 21h                                                  
-        
-        mov dx,offset welcome5
-        mov ah,9
-        int 21h
-        
-        mov dx,offset welcome6
-        mov ah,9
-        int 21h
-        
-        mov dx,offset welcome7
-        mov ah,9
-        int 21h
-        
-                                                                    
-        
-        mov dx,offset msg1
-        mov ah,9
-        int 21h
-                                                                       
-        mov dx,offset msg_medicines
-        mov ah,9
-        int 21h
-        
-        mov dx,offset medicines_sold
-        mov ah,9
-        int 21h
-        
-        mov dx,offset amount_print
-        mov ah,9
-        int 21h
-        
-        mov dx,offset exit_program
-        mov ah,9
-        int 21h                   
-        
-             
-        ret                                       
-          
-    menu endp
-    
+    menu proc
+             
+       
+             
+        mov dx,offset welcome1
+        mov ah,9
+        int 21h
+       
+        mov dx,offset welcome2
+        mov ah,9
+        int 21h
+       
+        mov dx,offset welcome3
+        mov ah,9
+        int 21h
+       
+        mov dx,offset welcome4
+        mov ah,9
+        int 21h                                                  
+       
+        mov dx,offset welcome5
+        mov ah,9
+        int 21h
+       
+        mov dx,offset welcome6
+        mov ah,9
+        int 21h
+       
+        mov dx,offset welcome7
+        mov ah,9
+        int 21h
+       
+                                                                   
+       
+        mov dx,offset msg1
+        mov ah,9
+        int 21h
+                                                                       
+        mov dx,offset msg_medicines
+        mov ah,9
+        int 21h
+       
+        mov dx,offset medicines_sold
+        mov ah,9
+        int 21h
+       
+        mov dx,offset amount_print
+        mov ah,9
+        int 21h
+       
+        mov dx,offset exit_program
+        mov ah,9
+        int 21h                  
+       
+             
+        ret                                      
+         
+    menu endp
+   
 
-     menu2 proc                                       
-                                                                      
-        pick:      
-        mov dx,offset msg2                                          
-        mov ah,9
-        int 21h
-        
-        mov dx,offset opt1
-        mov ah,9
-        int 21h                              
-                                                                   
-        mov dx,offset opt2
-        mov ah,9                                         
-        int 21h
-            
-        mov dx,offset opt3
-        mov ah,9
-        int 21h
-        
-        mov dx,offset opt4
-        mov ah,9
-        int 21h
-    
-        
-        mov dx,offset newLine
-        mov ah,9
-        int 21h    
-                                                                     
-        mov ah,1                                              
-        int 21h                                       
-        
-           
-           
-           
-        cmp al,'1'
-        je Biotin                                     
-        cmp al,'2'                                                  
-        je Azomax
-        cmp al,'3'                                                   
-        je Brufen
-        cmp al,'4'
-        je Flagyl
-        
-        
-         
-        
-        mov dx,offset wrong_input                         
-        mov ah,9                                                     
-        int 21h                                  
-        mov dx,offset input_again
-        mov ah,9
-        int 21h                                               
-        jmp pick                                                
-     
-        
-        ret                                                      
-            
-            
-    menu2 endp  
+     menu2 proc                                      
+                                                                     
+        pick:      
+        mov dx,offset msg2                                          
+        mov ah,9
+        int 21h
+       
+        mov dx,offset opt1
+        mov ah,9
+        int 21h                              
+                                                                   
+        mov dx,offset opt2
+        mov ah,9                                        
+        int 21h
+           
+        mov dx,offset opt3
+        mov ah,9
+        int 21h
+       
+        mov dx,offset opt4
+        mov ah,9
+        int 21h
+   
+       
+        mov dx,offset newLine
+        mov ah,9
+        int 21h    
+                                                                     
+        mov ah,1                                              
+        int 21h                                      
+       
+           
+           
+           
+        cmp al,'1'
+        je Biotin                                    
+        cmp al,'2'                                                  
+        je Azomax
+        cmp al,'3'                                                  
+        je Brufen
+        cmp al,'4'
+        je Flagyl
+       
+       
+         
+       
+        mov dx,offset wrong_input                        
+        mov ah,9                                                    
+        int 21h                                  
+        mov dx,offset input_again
+        mov ah,9
+        int 21h                                              
+        jmp pick                                                
+     
+       
+        ret                                                      
+           
+           
+    menu2 endp  
 
 
 medicines_stats proc
@@ -530,30 +537,5 @@ medicines_stats proc
          
     medicines_stats endp                                                  ; end of function
        
-end main 
-       
-       
-        mov dx,offset aspirin_print
-        mov ah,9
-        int 21h
-         
-        mov dl,aspirin_sold
-        add dl,48
-        mov ah,2
-        int 21h
-       
-       
-       
-       
-       
-           
-        jmp start
-       
-        ret
-         
-    medicines_stats endp                                                  ; end of function
-       
-end main                  
-                     
-                   
-                                                        
+end main  
+ 
