@@ -327,6 +327,24 @@ main proc
         mov ah,9                                                                ;output string
         int 21h                                                                 ;intrept
         jmp pass     
+
+
+
+wrong:
+           mov dx,offset wrong_input                                            ;print that / load in dx register
+           mov ah,9                                                             ;if user enter a key which is wrong so it will display an error message
+           int 21h
+           mov dx,offset input_again                                            ;print line that please input again then jump to main menu and
+           mov ah,9                                                             ;take the user choice again
+           int 21h  
+           jmp menu2
+           
+
+exit:
+mov ah,4ch
+int 21h
+
+main endp
            
  
    
