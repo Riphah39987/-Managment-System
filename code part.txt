@@ -475,22 +475,22 @@ main endp
 medicines_stats proc
          
          
-        mov dx,offset panadol_print
+        mov dx,offset Biotin_print
         mov ah,9
         int 21h
  
-        mov dl,panadol_sold
+        mov dl,Biotin_sold
         add dl,48
         mov ah,2                                                          ;function that is used in medicine statistics
         int 21h
        
        
                                                                          
-        mov dx,offset paracetamol_print
+        mov dx,offset Azomax_print
         mov ah,9
         int 21h
 
-        mov dl,paracetamol_sold
+        mov dl,Azomax_sold
         add dl,48
         mov ah,2                                                          ; will the message for each medicine and
         int 21h                                                           ; show quantity of medicine sold
@@ -498,16 +498,39 @@ medicines_stats proc
        
        
        
-        mov dx,offset cleritek_print
+        mov dx,offset  Brufen_print
         mov ah,9
         int 21h
  
-        mov dl,cleritek_sold
+        mov dl, Brufen_sold
+        add dl,48
+        mov ah,2                        
+        int 21h
+       
+       
+       
+       
+        mov dx,offset Flagyl_print
+        mov ah,9
+        int 21h
+         
+        mov dl,Flagyl_sold
         add dl,48
         mov ah,2
         int 21h
        
        
+       
+       
+       
+           
+        jmp start
+       
+        ret
+         
+    medicines_stats endp                                                  ; end of function
+       
+end main 
        
        
         mov dx,offset aspirin_print
